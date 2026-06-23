@@ -1,7 +1,51 @@
-<footer class="site-footer">
-    <p>&copy; 2026 Nguyễn Võ Rin Đô - Basketball Life. Kết nối đam mê và đồng đội.</p>
-  </footer>
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MyWeb - 2. Đổi tiêu đề DOM</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="brand">Basketball Life</div>
+  <button class="menu-toggle" aria-label="Mở menu">☰</button>
+  <nav class="main-nav">
+    <a href="#hero">Trang chủ</a>
+    <a href="#about">Giới thiệu</a>
+    <a href="#gallery">Thư viện</a>
+    <a href="#portfolio">Kỹ năng</a>
+    <a href="#contact">Liên hệ</a>
+  </nav>
+</header>
 
-  <script src="../js/script.js"></script>
+<main>
+  <section class="hero" id="hero">
+    <p class="eyebrow">Website cá nhân về đam mê thể thao</p>
+    <h1 id="main-title">Bóng Rổ - Lối Sống Và Đam Mê</h1>
+    <p class="intro">Bóng rổ không chỉ là môn thể thao, đó là nơi rèn luyện ý chí bứt phá, tinh thần đồng đội và phong cách sống năng động của Nguyễn Võ Rin Đô.</p>
+    <a class="primary-button" href="#about">Khám phá chủ đề</a>
+    <img src="../img/hero.jpg" alt="Hero Background" style="display: none;">
+  </section>
+
+  <section class="section about-section" id="about">
+    <h2>Giới thiệu chủ đề</h2>
+    <p>Tôi chọn chủ đề bóng rổ vì đây là bộ môn thể thao tôi yêu thích và tập luyện mỗi ngày.</p>
+  </section>
+
+  <section class="section contact-section" id="contact">
+    <h2>Liên hệ giao lưu</h2>
+    <form class="contact-form" action="#" method="POST">
+      <textarea id="message" name="message" rows="5" required></textarea>
+      <button type="submit" class="submit-button">Gửi lời nhắn</button>
+    </form>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Nguyễn Võ Rin Đô - Basketball Life. Kết nối đam mê và đồng đội.</p>
+</footer>
+
+<script src="../js/script.js"></script>
 </body>
 </html>
