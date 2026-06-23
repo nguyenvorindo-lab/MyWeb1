@@ -7,6 +7,7 @@ body {
   font-family: Arial, sans-serif;
   color: #222222;
   background-color: #f3f4f6;
+  transition: background-color 0.3s, color 0.3s;
 }
 
 h1, h2, h3, p {
@@ -39,6 +40,34 @@ a {
   --accent: #ff6600;
   --soft: #e5e7eb;
   --dark: #111827;
+}
+
+.dark-mode {
+  background-color: #111827;
+  color: #f8fafc;
+}
+
+.dark-mode .search-item, 
+.dark-mode .gallery-item, 
+.dark-mode .feature-card, 
+.dark-mode .portfolio-grid article,
+.dark-mode .main-content {
+  background-color: #1f2937;
+  color: #f8fafc;
+  border-color: #374151;
+}
+
+.dark-mode h2, .dark-mode label {
+  color: #f8fafc;
+}
+
+.warm-mode {
+  background-color: #fff7ed;
+  color: #431407;
+}
+
+.hidden {
+  display: none !important;
 }
 
 .hero {
@@ -150,13 +179,13 @@ img {
   margin-top: 8px;
 }
 
-.main-nav a:hover, .primary-button:hover, button:hover {
+.main-nav a:hover, .primary-button:hover, button:hover, .filter-btn:hover {
   opacity: 0.86;
   transform: translateY(-1px);
   transition: all 0.2s ease;
 }
 
-button {
+button, .filter-btn {
   padding: 12px 18px;
   border: 0;
   border-radius: 14px;
@@ -164,6 +193,13 @@ button {
   background-color: var(--accent);
   cursor: pointer;
   font-weight: bold;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 24px;
 }
 
 .site-header, .main-nav, .card-row, .content-layout, .image-strip {
@@ -265,8 +301,42 @@ input, textarea {
   margin-top: 56px;
 }
 
+.menu-toggle {
+  display: none;
+}
+
 @media (max-width: 768px) {
-  .site-header, .main-nav, .card-row, .content-layout, .image-strip {
+  .site-header {
+    flex-direction: row;
+    position: relative;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .main-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 10px 8%;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+  }
+
+  .main-menu.active {
+    display: flex;
+  }
+
+  .main-menu a {
+    margin: 8px 0;
+  }
+
+  .card-row, .content-layout, .image-strip {
     flex-direction: column;
   }
 
