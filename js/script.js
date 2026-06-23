@@ -41,3 +41,79 @@ if (menuToggle && mainMenu) {
     mainMenu.classList.toggle("active");
   });
 }
+
+const themeSelect = document.getElementById("themeSelect");
+
+if (themeSelect) {
+  themeSelect.addEventListener("change", function () {
+    document.body.classList.remove("dark-mode", "warm-mode");
+    if (themeSelect.value !== "") {
+      document.body.classList.add(themeSelect.value);
+    }
+  });
+}
+
+const searchInput = document.getElementById("searchInput");
+const searchItems = document.querySelectorAll(".search-item");
+
+if (searchInput && searchItems.length > 0) {
+  searchInput.addEventListener("keyup", function () {
+    const keyword = searchInput.value.toLowerCase().trim();
+    searchItems.forEach(function (item) {
+      const text = item.textContent.toLowerCase();
+      if (text.includes(keyword)) {
+        item.style.style.display = "";
+      } else {
+        item.style.style.display = "none";
+      }
+    });
+  });
+}
+
+const filterButtons = document.querySelectorAll(".filter-btn");
+const galleryItems = document.querySelectorAll(".gallery-item");
+
+if (filterButtons.length > 0 && galleryItems.length > 0) {
+  filterButtons.forEach(function (button) {
+    button.addEventListener("click", function () {
+      const filter = button.dataset.filter;
+      galleryItems.forEach(function (item) {
+        const category = item.dataset.category;
+        if (filter === "all" || category === filter) {
+          item.style.display = "";
+        } else {
+          item.style.display = "none";
+        }
+      });
+    });
+  });
+}
+
+const contactForm = document.getElementById("contactForm");
+const fullName = document.getElementById("fullName");
+const email = document.getElementById("email");
+const formMessage = document.getElementById("formMessage");
+
+if (contactForm && fullName && email && formMessage) {
+  contactForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    const nameValue = fullName.value.trim();
+    const emailValue = email.value.trim();
+
+    if (nameValue === "") {
+      formMessage.textContent = "Vui lòng nhập họ tên.";
+      formMessage.style.color = "red";
+      return;
+    }
+
+    if (emailValue === "" || !emailValue.includes("@")) {
+      formMessage.textContent = "Vui lòng nhập email hợp lệ.";
+      formMessage.style.color = "red";
+      return;
+    }
+
+    formMessage.textContent = "Thông tin đã hợp lệ. Cảm ơn bạn!";
+    formMessage.style.color = "green";
+  });
+}
