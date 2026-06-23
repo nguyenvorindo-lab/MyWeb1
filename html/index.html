@@ -5,90 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MyWeb - 10. Hoàn thiện hệ thống</title>
   <link rel="stylesheet" href="../css/style.css">
-  <style>
-    .hidden {
-      display: none;
-    }
-    @media (max-width: 768px) {
-      .main-menu {
-        display: none;
-      }
-      .main-menu.active {
-        display: block;
-      }
-    }
-    .dark-mode {
-      background: #111827;
-      color: #f8fafc;
-    }
-    .warm-mode {
-      background: #fff7ed;
-    }
-    .search-box {
-      margin: 20px 0;
-    }
-    .search-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 15px;
-      margin-top: 15px;
-    }
-    .search-item {
-      padding: 15px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      background: rgba(255, 255, 255, 0.1);
-    }
-    .filter-buttons {
-      margin-bottom: 20px;
-    }
-    .filter-btn {
-      padding: 8px 16px;
-      margin-right: 5px;
-      border: 1px solid #ff5722;
-      background: none;
-      color: inherit;
-      cursor: pointer;
-      border-radius: 4px;
-    }
-    .gallery-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-    }
-    .gallery-item {
-      border: 1px solid #ccc;
-      padding: 15px;
-      border-radius: 6px;
-      background: rgba(255, 255, 255, 0.05);
-    }
-    .form-group {
-      margin-bottom: 15px;
-    }
-    .form-group label {
-      display: block;
-      margin-bottom: 5px;
-      font-weight: bold;
-    }
-    .form-group input, .form-group textarea {
-      width: 100%;
-      max-width: 400px;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      box-sizing: border-box;
-    }
-    #formMessage {
-      margin-top: 15px;
-      font-weight: bold;
-    }
-  </style>
 </head>
 <body>
+
 <header class="site-header">
   <div class="brand">Basketball Life</div>
   <button id="menuToggle" class="menu-toggle">☰ Menu</button>
-  <nav id="mainMenu" class="main-menu">
+  <nav id="mainMenu" class="main-menu main-nav">
     <a href="#hero">Trang chủ</a>
     <a href="#about">Giới thiệu</a>
     <a href="#gallery">Thư viện</a>
@@ -103,17 +26,17 @@
     <h1 id="main-title">Bóng Rổ - Lối Sống Và Đam Mê</h1>
     <p class="intro">Bóng rổ không chỉ là môn thể thao, đó là nơi rèn luyện ý chí bứt phá, tinh thần đồng đội và phong cách sống năng động của Nguyễn Võ Rin Đô.</p>
     
-    <div style="margin-top: 20px;">
-      <select id="themeSelect" style="padding: 8px 12px; border-radius: 4px; border: 1px solid #ccc; font-size: 14px;">
+    <div style="margin-top: 20px; margin-bottom: 20px;">
+      <select id="themeSelect" style="padding: 12px 14px; border-radius: 14px; border: 1px solid #cbd5e1; font-size: 16px; font-family: inherit; background-color: #ffffff; cursor: pointer;">
         <option value="">Giao diện mặc định</option>
         <option value="dark-mode">Nền tối</option>
         <option value="warm-mode">Nền ấm</option>
       </select>
     </div>
 
-    <div class="welcome-box" style="margin-top: 20px;">
+    <div class="welcome-box">
       <button id="helloBtn" class="primary-button">Nhấn để xem lời chào</button>
-      <p id="helloResult" style="margin-top: 10px; font-weight: bold; color: #ff5722;"></p>
+      <p id="helloResult" style="margin-top: 15px; font-weight: bold; color: #ff6600; font-size: 20px;"></p>
     </div>
 
     <img src="../img/hero.jpg" alt="Hero Background" style="display: none;">
@@ -121,29 +44,71 @@
 
   <section class="section about-section" id="about">
     <h2>Giới thiệu chủ đề</h2>
-    <button id="toggleAboutBtn" class="primary-button" style="margin-bottom: 15px;">Ẩn/Hiện nội dung</button>
+    <div style="text-align: center; margin-bottom: 20px;">
+      <button id="toggleAboutBtn" class="primary-button">Ẩn/Hiện nội dung</button>
+    </div>
     <div id="aboutContent">
-      <p>Tôi chọn chủ đề bóng rổ vì đây là bộ môn thể thao tôi yêu thích và tập luyện mỗi ngày.</p>
+      <p class="lead" style="text-align: center;">Tôi chọn chủ đề bóng rổ vì đây là bộ môn thể thao tôi yêu thích và tập luyện mỗi ngày.</p>
+      <blockquote>"Sự kiên trì sẽ biến những cú ném hụt thành những siêu phẩm."</blockquote>
+    </div>
+  </section>
+
+  <section class="section story-section">
+    <div class="swatches">
+      <div class="swatch swatch-primary">Primary Color</div>
+      <div class="swatch swatch-accent">Accent Color</div>
+      <div class="swatch swatch-soft">Soft Color</div>
+    </div>
+  </section>
+
+  <section class="section feature-section">
+    <h2>Lợi ích của bóng rổ</h2>
+    <div class="card-row">
+      <div class="feature-card">
+        <h3>Sức khỏe</h3>
+        <p>Phát triển chiều cao, tăng cường sức bền cơ bắp và hệ tim mạch hoạt động tốt hơn.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Tinh thần</h3>
+        <p>Giải tỏa căng thẳng sau những giờ học tập và rèn luyện tính kỷ luật, ý chí kiên định.</p>
+      </div>
+      <div class="feature-card">
+        <h3>Đồng đội</h3>
+        <p>Kết nối những người có cùng đam mê, học cách thấu hiểu và phối hợp ăn ý với nhau.</p>
+      </div>
     </div>
   </section>
 
   <section class="section search-section">
     <h2>Tìm kiếm kiến thức bóng rổ</h2>
-    <div class="search-box">
-      <input type="text" id="searchInput" placeholder="Nhập vị trí, kỹ thuật cần tìm..." style="padding: 10px; width: 100%; max-width: 400px; border-radius: 4px; border: 1px solid #ccc;">
+    <div class="search-box" style="text-align: center;">
+      <input type="text" id="searchInput" placeholder="Nhập vị trí, kỹ thuật cần tìm..." style="max-width: 500px;">
     </div>
-    <div class="search-container">
-      <div class="search-item">
+    <div class="search-container card-row" style="margin-top: 20px;">
+      <div class="search-item feature-card">
         <h3>Hậu vệ dẫn bóng (Point Guard)</h3>
         <p>Điều tiết trận đấu và tổ chức tấn công.</p>
       </div>
-      <div class="search-item">
+      <div class="search-item feature-card">
         <h3>Kỹ thuật ném rổ (Shooting)</h3>
         <p>Tư thế giữ bóng và bật nhảy dứt điểm chuẩn xác.</p>
       </div>
-      <div class="search-item">
+      <div class="search-item feature-card">
         <h3>Trung phong (Center)</h3>
         <p>Tranh chấp khu vực dưới rổ và phòng thủ bảng rổ.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section layout-section">
+    <div class="content-layout">
+      <div class="main-content">
+        <h3>Hành trình đam mê</h3>
+        <p>Bắt đầu từ những cú ném rổ vụng về tại sân trường, bóng rổ nhanh chóng trở thành một phần không thể thiếu trong cuộc sống của tôi. Mỗi trận đấu là một bài học về sự nỗ lực và không bao giờ bỏ cuộc.</p>
+      </div>
+      <div class="side-panel">
+        <h3>Thông tin thêm</h3>
+        <p>Lịch tập luyện cố định: Chiều thứ 2, 4, 6 hàng tuần tại sân bóng rổ trung tâm.</p>
       </div>
     </div>
   </section>
@@ -155,43 +120,54 @@
       <button class="filter-btn" data-filter="skills">Kỹ năng</button>
       <button class="filter-btn" data-filter="tournaments">Giải đấu</button>
     </div>
-    <div class="gallery-container">
-      <article class="gallery-item" data-category="skills">
-        <h4>Kỹ thuật Dẫn bóng chéo tay (Crossover)</h4>
-        <p>Động tác đánh lừa hướng di chuyển của đối thủ.</p>
-      </article>
-      <article class="gallery-item" data-category="tournaments">
-        <h4>Trận chung kết kịch tính</h4>
-        <p>Hình ảnh thi đấu nỗ lực hết mình cùng toàn đội.</p>
-      </article>
-      <article class="gallery-item" data-category="skills">
-        <h4>Tập luyện ném phạt</h4>
-        <p>Rèn luyện sự tập trung và độ chính xác tuyệt đối.</p>
-      </article>
-      <article class="gallery-item" data-category="tournaments">
-        <h4>Lễ trao giải khu vực</h4>
-        <p>Kỷ niệm đạt cúp vô địch cùng câu lạc bộ.</p>
-      </article>
+    <div class="gallery-container image-strip">
+      <figure class="gallery-item" data-category="skills">
+        <h4>Kỹ thuật Crossover</h4>
+        <figcaption>Động tác đánh lừa hướng di chuyển của đối thủ.</figcaption>
+      </figure>
+      <figure class="gallery-item" data-category="tournaments">
+        <h4>Trận chung kết</h4>
+        <figcaption>Hình ảnh thi đấu nỗ lực hết mình cùng toàn đội.</figcaption>
+      </figure>
+      <figure class="gallery-item" data-category="skills">
+        <h4>Ném phạt</h4>
+        <figcaption>Rèn luyện sự tập trung và độ chính xác tuyệt đối.</figcaption>
+      </figure>
+      <figure class="gallery-item" data-category="tournaments">
+        <h4>Lễ trao giải</h4>
+        <figcaption>Kỷ niệm đạt cúp vô địch cùng câu lạc bộ.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section portfolio-section" id="portfolio">
+    <h2>Vị trí sở trường</h2>
+    <div class="portfolio-grid">
+      <article>Point Guard (PG)</article>
+      <article>Shooting Guard (SG)</article>
+      <article>Small Forward (SF)</article>
     </div>
   </section>
 
   <section class="section contact-section" id="contact">
     <h2>Liên hệ giao lưu</h2>
-    <form id="contactForm" action="#" method="POST">
-      <div class="form-group">
+    <form id="contactForm" class="contact-form" action="#" method="POST">
+      <div>
         <label for="fullName">Họ tên:</label>
         <input type="text" id="fullName" name="fullName">
       </div>
-      <div class="form-group">
+      <div>
         <label for="email">Email:</label>
         <input type="text" id="email" name="email">
       </div>
-      <div class="form-group">
+      <div>
         <label for="message">Lời nhắn:</label>
         <textarea id="message" name="message" rows="5"></textarea>
       </div>
-      <button type="submit" class="submit-button">Gửi lời nhắn</button>
-      <p id="formMessage"></p>
+      <div style="text-align: center;">
+        <button type="submit">Gửi lời nhắn</button>
+      </div>
+      <p id="formMessage" style="text-align: center; font-weight: bold; margin-top: 10px;"></p>
     </form>
   </section>
 </main>
