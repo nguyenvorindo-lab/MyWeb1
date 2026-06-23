@@ -3,8 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MyWeb - 3. Nút chào mừng</title>
+  <title>MyWeb - 4. Ẩn/hiện nội dung</title>
   <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .hidden {
+      display: none;
+    }
+  </style>
 </head>
 <body>
 <header class="site-header">
@@ -22,11 +27,9 @@
 <main>
   <section class="hero" id="hero">
     <p class="eyebrow">Website cá nhân về đam mê thể thao</p>
-    
     <h1 id="main-title">Bóng Rổ - Lối Sống Và Đam Mê</h1>
     <p class="intro">Bóng rổ không chỉ là môn thể thao, đó là nơi rèn luyện ý chí bứt phá, tinh thần đồng đội và phong cách sống năng động của Nguyễn Võ Rin Đô.</p>
     
-   
     <div class="welcome-box" style="margin-top: 20px;">
       <button id="helloBtn" class="primary-button">Nhấn để xem lời chào</button>
       <p id="helloResult" style="margin-top: 10px; font-weight: bold; color: #ff5722;"></p>
@@ -37,7 +40,10 @@
 
   <section class="section about-section" id="about">
     <h2>Giới thiệu chủ đề</h2>
-    <p>Tôi chọn chủ đề bóng rổ vì đây là bộ môn thể thao tôi yêu thích và tập luyện mỗi ngày.</p>
+    <button id="toggleAboutBtn" class="primary-button" style="margin-bottom: 15px;">Ẩn/Hiện nội dung</button>
+    <div id="aboutContent">
+      <p>Tôi chọn chủ đề bóng rổ vì đây là bộ môn thể thao tôi yêu thích và tập luyện mỗi ngày.</p>
+    </div>
   </section>
 
   <section class="section contact-section" id="contact">
@@ -52,7 +58,6 @@
 <footer class="site-footer">
   <p>&copy; 2026 Nguyễn Võ Rin Đô - Basketball Life. Kết nối đam mê và đồng đội.</p>
 </footer>
-
 
 <script src="../js/script.js"></script>
 </body>
