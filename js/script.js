@@ -62,9 +62,9 @@ if (searchInput && searchItems.length > 0) {
     searchItems.forEach(function (item) {
       const text = item.textContent.toLowerCase();
       if (text.includes(keyword)) {
-        item.style.style.display = "";
+        item.style.display = "";
       } else {
-        item.style.style.display = "none";
+        item.style.display = "none";
       }
     });
   });
