@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MyWeb - 5. Menu tương tác</title>
+  <title>MyWeb - 10. Hoàn thiện hệ thống</title>
   <link rel="stylesheet" href="../css/style.css">
   <style>
     .hidden {
@@ -16,6 +16,71 @@
       .main-menu.active {
         display: block;
       }
+    }
+    .dark-mode {
+      background: #111827;
+      color: #f8fafc;
+    }
+    .warm-mode {
+      background: #fff7ed;
+    }
+    .search-box {
+      margin: 20px 0;
+    }
+    .search-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 15px;
+    }
+    .search-item {
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .filter-buttons {
+      margin-bottom: 20px;
+    }
+    .filter-btn {
+      padding: 8px 16px;
+      margin-right: 5px;
+      border: 1px solid #ff5722;
+      background: none;
+      color: inherit;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    .gallery-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .gallery-item {
+      border: 1px solid #ccc;
+      padding: 15px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.05);
+    }
+    .form-group {
+      margin-bottom: 15px;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+    .form-group input, .form-group textarea {
+      width: 100%;
+      max-width: 400px;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+    #formMessage {
+      margin-top: 15px;
+      font-weight: bold;
     }
   </style>
 </head>
@@ -38,6 +103,14 @@
     <h1 id="main-title">Bóng Rổ - Lối Sống Và Đam Mê</h1>
     <p class="intro">Bóng rổ không chỉ là môn thể thao, đó là nơi rèn luyện ý chí bứt phá, tinh thần đồng đội và phong cách sống năng động của Nguyễn Võ Rin Đô.</p>
     
+    <div style="margin-top: 20px;">
+      <select id="themeSelect" style="padding: 8px 12px; border-radius: 4px; border: 1px solid #ccc; font-size: 14px;">
+        <option value="">Giao diện mặc định</option>
+        <option value="dark-mode">Nền tối</option>
+        <option value="warm-mode">Nền ấm</option>
+      </select>
+    </div>
+
     <div class="welcome-box" style="margin-top: 20px;">
       <button id="helloBtn" class="primary-button">Nhấn để xem lời chào</button>
       <p id="helloResult" style="margin-top: 10px; font-weight: bold; color: #ff5722;"></p>
@@ -54,11 +127,71 @@
     </div>
   </section>
 
+  <section class="section search-section">
+    <h2>Tìm kiếm kiến thức bóng rổ</h2>
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="Nhập vị trí, kỹ thuật cần tìm..." style="padding: 10px; width: 100%; max-width: 400px; border-radius: 4px; border: 1px solid #ccc;">
+    </div>
+    <div class="search-container">
+      <div class="search-item">
+        <h3>Hậu vệ dẫn bóng (Point Guard)</h3>
+        <p>Điều tiết trận đấu và tổ chức tấn công.</p>
+      </div>
+      <div class="search-item">
+        <h3>Kỹ thuật ném rổ (Shooting)</h3>
+        <p>Tư thế giữ bóng và bật nhảy dứt điểm chuẩn xác.</p>
+      </div>
+      <div class="search-item">
+        <h3>Trung phong (Center)</h3>
+        <p>Tranh chấp khu vực dưới rổ và phòng thủ bảng rổ.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section gallery-section" id="gallery">
+    <h2>Thư viện ảnh và khoảnh khắc</h2>
+    <div class="filter-buttons">
+      <button class="filter-btn" data-filter="all">Tất cả</button>
+      <button class="filter-btn" data-filter="skills">Kỹ năng</button>
+      <button class="filter-btn" data-filter="tournaments">Giải đấu</button>
+    </div>
+    <div class="gallery-container">
+      <article class="gallery-item" data-category="skills">
+        <h4>Kỹ thuật Dẫn bóng chéo tay (Crossover)</h4>
+        <p>Động tác đánh lừa hướng di chuyển của đối thủ.</p>
+      </article>
+      <article class="gallery-item" data-category="tournaments">
+        <h4>Trận chung kết kịch tính</h4>
+        <p>Hình ảnh thi đấu nỗ lực hết mình cùng toàn đội.</p>
+      </article>
+      <article class="gallery-item" data-category="skills">
+        <h4>Tập luyện ném phạt</h4>
+        <p>Rèn luyện sự tập trung và độ chính xác tuyệt đối.</p>
+      </article>
+      <article class="gallery-item" data-category="tournaments">
+        <h4>Lễ trao giải khu vực</h4>
+        <p>Kỷ niệm đạt cúp vô địch cùng câu lạc bộ.</p>
+      </article>
+    </div>
+  </section>
+
   <section class="section contact-section" id="contact">
     <h2>Liên hệ giao lưu</h2>
-    <form class="contact-form" action="#" method="POST">
-      <textarea id="message" name="message" rows="5" required></textarea>
+    <form id="contactForm" action="#" method="POST">
+      <div class="form-group">
+        <label for="fullName">Họ tên:</label>
+        <input type="text" id="fullName" name="fullName">
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email">
+      </div>
+      <div class="form-group">
+        <label for="message">Lời nhắn:</label>
+        <textarea id="message" name="message" rows="5"></textarea>
+      </div>
       <button type="submit" class="submit-button">Gửi lời nhắn</button>
+      <p id="formMessage"></p>
     </form>
   </section>
 </main>
