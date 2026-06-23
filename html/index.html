@@ -3,19 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MyWeb - 4. Ẩn/hiện nội dung</title>
+  <title>MyWeb - 5. Menu tương tác</title>
   <link rel="stylesheet" href="../css/style.css">
   <style>
     .hidden {
       display: none;
+    }
+    @media (max-width: 768px) {
+      .main-menu {
+        display: none;
+      }
+      .main-menu.active {
+        display: block;
+      }
     }
   </style>
 </head>
 <body>
 <header class="site-header">
   <div class="brand">Basketball Life</div>
-  <button class="menu-toggle" aria-label="Mở menu">☰</button>
-  <nav class="main-nav">
+  <button id="menuToggle" class="menu-toggle">☰ Menu</button>
+  <nav id="mainMenu" class="main-menu">
     <a href="#hero">Trang chủ</a>
     <a href="#about">Giới thiệu</a>
     <a href="#gallery">Thư viện</a>
